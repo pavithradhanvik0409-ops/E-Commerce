@@ -1,0 +1,38 @@
+{% extends 'dummy_base.html' %}
+{% block title %} Cart {% endblock %}
+{% block content %}
+<h1> Cart Page </h1>
+{% for item in cart_items %}
+<h3> {{item.product.product_name}}</h3>
+<p> {{item.product.product_price}}</p>
+<a href="{% url 'payment_method' item.product.id %}">
+    <button> Proceed to Payment </button>
+</a>
+{% endfor %}
+{% endblock %}
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+</head>
+<body>
+<h1 style = "color:orange;"> This is a Cart Page </h1>
+{% if  number1 > 0 %}
+<H2> POSITIVE NUMBER </H2>
+{% elif number1 < 0 %}
+<h2> NEGATIVE NUMBER</h2>
+{% else %}
+<h2> NUMBER IS ZERO</h2>
+{% endif %}
+</body>
+</html>

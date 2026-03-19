@@ -1,0 +1,60 @@
+{% extends 'dummy_base.html' %}
+{% block title %} Payment Method {% endblock %}
+{% block content %}
+
+<h2 style="text-align:center;font-size:30px;color:green;font-weight:bold;"> Welcome to Payment Page </h2>
+<br>
+
+<h3 style="text-align:center; color:brown; font-weight:bold;">
+Select Payment Method
+</h3>
+<br>
+
+<div style="text-align:center; font-size:28px;font-weight:bold;">
+
+<input type="radio" name="payment" value="gpay" onclick="show('gpay')">GooglePay<br>
+
+<input type="radio" name="payment" value="phonepe" onclick="show('phonepe')">PhonePe<br>
+
+<input type="radio" name="payment" value="card" onclick="show('card')">Card<br>
+
+<input type="radio" name="payment" value="cod" onclick="show('cod')">Cash on Delivery<br>
+
+<div id="gpay" style="display:none;">
+Enter UPI ID: <input type="text"><br>
+</div>
+
+<div id="phonepe" style="display:none;">
+Enter Phone Number: <input type="text"><br>
+</div>
+
+<div id="card" style="display:none;">
+Card Number: <input type="text"><br><br>
+Expiry Date: <input type="text"><br>
+</div>
+
+<div id="cod" style="display:none;">
+Cash will be collected at delivery.
+</div>
+
+</div>
+
+<script>
+function show(id){
+    var x = document.querySelectorAll('[id]');
+    document.getElementById('gpay').style.display="none";
+    document.getElementById('phonepe').style.display="none";
+    document.getElementById('card').style.display="none";
+    document.getElementById('cod').style.display="none";
+    document.getElementById(id).style.display="block";
+}
+</script>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+{% endblock %}

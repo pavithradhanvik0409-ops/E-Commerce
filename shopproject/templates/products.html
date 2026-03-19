@@ -1,0 +1,62 @@
+{% extends 'dummy_base.html' %}
+{% block title %} Products {% endblock %}
+{% block content %}
+<h1 class="text-center"> Products Page </h1>
+<hr style="border: 5px solid blue; width: 100%;">
+<div style="display:grid;grid-template-columns: repeat(2, 1fr);gap:20px;">
+{% for c in data %}
+<div style="background:linear-gradient(to right,grey,teal);padding:20px;color:white;">
+    <h2 style="color:cyan">{{ c.category.category_name }}</h2>
+    {% for p in c.products %}
+    <div style="display:flex;align-items:flex:flex-start;gap:15px;margin-bottom:15px;">
+    {% if p.product_image %}
+        <img src="{{ p.product_image.url }}"
+             style="width:150px; height:150px; object-fit:cover;border-radius:5px;flex-shrink:0;">
+    {% else %}
+        <img src="/media/products/default.jpg"
+             style="width:150px; height:150px; object-fit:cover;border-radius:5px;flex-shrink:0;">
+    {% endif %}
+    <div>
+    <h4>
+        <a href="{% url 'add_to_cart' p.id %}"
+                style="text-decoration: underline;color:black;">{{ p.product_name }}
+        </a>
+    </h4>
+    <p>{{ p.product_description }}</p>
+    <h5 style="color:yellow">{{ p.product_price }}</h5>
+        </div>
+</div>
+{% endfor %}
+</div>
+{% endfor %}
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+</head>
+<body>
+<h1> This is a Products Page </h1>
+</body>
+</html>
